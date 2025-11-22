@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Voice Navigation</string>
+    <string name="accessibility_service_description">Voice Navigation allows you to control your device using voice commands. It can perform taps, swipes, and other gestures based on spoken grid coordinates. All processing is done locally on your device for privacy.</string>
+    <string name="service_enabled">Voice Navigation Enabled</string>
+    <string name="service_disabled">Voice Navigation Disabled</string>
+    <string name="enable_service">Enable Service</string>
+    <string name="disable_service">Disable Service</string>
+    <string name="open_settings">Open Accessibility Settings</string>
+    <string name="service_status">Service Status:</string>
+    <string name="listening">Listening...</string>
+    <string name="not_listening">Not Listening</string>
+    <string name="permission_required">Microphone permission required</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="instructions_title">How to use Voice Navigation:</string>
+    <string name="instructions_text">1. Enable the accessibility service\n2. Grant microphone permission\n3. Use voice commands like:\n   • "Tap A5" - Tap grid position A5\n   • "Swipe A1 to C5" - Swipe from A1 to C5\n   • "Circle B3" - Draw a circle at B3\n   • "Home" - Go to home screen\n   • "Back" - Go back\n   • "Recents" - Open recent apps</string>
+</resources>
