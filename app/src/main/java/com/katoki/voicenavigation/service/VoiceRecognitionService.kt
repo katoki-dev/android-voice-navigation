@@ -140,7 +140,7 @@ class VoiceRecognitionService : Service() {
             // Restart listening unless it's a permission error
             if (error != SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS) {
                 // Restart after a short delay
-                android.os.Handler(mainLooper).postDelayed({
+                android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     startListening()
                 }, 500)
             }

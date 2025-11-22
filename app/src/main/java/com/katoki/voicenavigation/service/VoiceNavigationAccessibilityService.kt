@@ -9,6 +9,7 @@ import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.util.Log
+import android.os.Build
 import com.katoki.voicenavigation.mapper.GridMapper
 import com.katoki.voicenavigation.parser.CommandParser
 
@@ -38,9 +39,16 @@ class VoiceNavigationAccessibilityService : AccessibilityService() {
         // Initialize grid mapper with screen dimensions
         val windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getRealMetrics(displayMetrics)
         
-        gridMapper = GridMapper(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val windowMetrics = windowManager.currentWindowMetrics
+            val bounds = windowMetrics.bounds
+            gridMapper = GridMapper(bounds.width(), bounds.height())
+        } else {
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getRealMetrics(displayMetrics)
+            gridMapper = GridMapper(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        }
         
         // Start voice recognition service
         startVoiceRecognitionService()
